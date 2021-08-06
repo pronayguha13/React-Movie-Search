@@ -7,7 +7,7 @@ export const Movie = ({ children }) => {
   const [movies, setMovies] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const fetchMovie = async () => {
+  const searchMovie = async () => {
     try {
       const response = await axios.get(
         `http://www.omdbapi.com/?s=${searchQuery}&apikey=${process.env.REACT_APP_API_KEY}&type="movie"`
@@ -21,12 +21,14 @@ export const Movie = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchMovie();
+    searchMovie();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchQuery]);
+  }, []);
 
   return (
-    <MovieContext.Provider value={{ movies, searchQuery, setSearchQuery }}>
+    <MovieContext.Provider
+      value={{ movies, searchQuery, setSearchQuery, searchMovie }}
+    >
       {children}
     </MovieContext.Provider>
   );
