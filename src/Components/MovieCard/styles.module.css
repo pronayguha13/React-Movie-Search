@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Stardos+Stencil&display=swap");
+
+.MovieCard {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  border-radius: 1rem;
+  background-color: hsla(0, 0%, 47%, 0.6);
+}
+
+.MovieCard:not(:first-child) {
+  margin-top: 0.5rem;
+}
+.MovieCard img {
+  padding: 4px 2px;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+.MovieTitle {
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.25rem;
+  font-style: oblique;
+  font-family: "Stardos Stencil", cursive;
+  letter-spacing: 2px;
+}
+
+@media only screen and (min-width: 500px) {
+  .MovieCard {
+    width: 45%;
+    height: 570px;
+  }
+
+  .MovieCard img {
+    flex: 1;
+  }
+  .MovieCard:first-child {
+    margin-top: 0.5rem;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  .MovieCard {
+    width: 30%;
+    height: 570px;
+  }
+
+  .MovieCard img {
+    flex: 1;
+  }
+  .MovieCard:first-child {
+    margin-top: 0.5rem;
+  }
+}

@@ -12,7 +12,11 @@ const MovieList = () => {
   return (
     <div className={styles.container}>
       {movies.length ? (
-        movies.map((movie, index) => <MovieCard key={index} movie={movie} />)
+        <div className={styles.movieListContainer}>
+          {movies.map((movie, index) => (
+            <MovieCard key={index} movie={movie} />
+          ))}
+        </div>
       ) : (
         <StatusCard
           message={
