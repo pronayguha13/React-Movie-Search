@@ -1,5 +1,4 @@
 import React, { createContext, useState } from "react";
-import firebase from 
 
 export const UserContext = createContext();
 
@@ -13,5 +12,11 @@ export const User = ({ children }) => {
 
   const fetchUser = () => {};
 
-  return <UserContext.Provider value={{}}>{children}</UserContext.Provider>;
+  return (
+    <UserContext.Provider
+      value={{ isLoggedIn, user, logIn, logOut, fetchUser }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
 };

@@ -1,0 +1,71 @@
+.formContainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.AuthForm {
+  width: 90%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding-left: 0.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0px 0px 12px 12px rgba(48, 46, 46, 0.5);
+}
+.inputDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputDiv label {
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+.inputDiv input {
+  width: 98%;
+  height: 2rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background-color: #2e2c2c;
+  color: #fff;
+  outline: none;
+  border: none;
+  box-shadow: 0px 0px 2px 2px rgba(73, 71, 71, 0.5);
+  padding-left: 0.5rem;
+}
+
+.inputDiv input:focus {
+  border: 1px solid rgb(95, 90, 90);
+  box-shadow: 0px 0px 8px 2px rgba(102, 99, 99, 0.733);
+}
+
+.inputDiv input:-internal-autofill-selected {
+  background-color: #2e2c2c !important;
+  color: #fff !important ;
+}
+
+.submitBtn {
+  width: 98%;
+  background-color: #fc5404;
+  color: #fff;
+  padding: 0.75rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+}
+
+.submitBtn:focus,
+.submitBtn:hover {
+  background-color: #1eae98;
+  transition: background-color 0.25s ease-in-out;
+}
