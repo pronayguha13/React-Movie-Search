@@ -7,9 +7,9 @@ import { Movie } from "./global/MovieContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Movie>
+    {/* <Movie> */}
       <App />
-    </Movie>
+    {/* </Movie> */}
   </React.StrictMode>,
   document.getElementById("root")
 );

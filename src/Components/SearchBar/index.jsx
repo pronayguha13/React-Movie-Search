@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { connect } from "react-redux";
 
 import { MovieContext } from "../../global/MovieContext";
 import styles from "./styles.module.css";
@@ -36,4 +37,11 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+const mapStateToProps = (state) => {
+  console.log(
+    "🚀 ~ file: index.jsx ~ line 40 ~ mapStateToProps ~ state",
+    state
+  );
+  return{}
+};
+export default connect(mapStateToProps)(SearchBar);
