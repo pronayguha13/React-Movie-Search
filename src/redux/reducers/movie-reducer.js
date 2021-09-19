@@ -8,7 +8,7 @@ const movie_reducers = (state = initialState, action) => {
   let newState = { ...state };
   switch (action.type) {
     case SET_MOVIE_RESULT: {
-      newState["movieList"] = action.payload.movieList;
+      newState["movieList"] = action.payload;
       break;
     }
     default:

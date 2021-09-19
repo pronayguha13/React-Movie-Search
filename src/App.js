@@ -11,7 +11,7 @@ const App = () => {
     <div className="App">
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          {/* <SearchBar /> */}
+          <SearchBar />
           <MovieList />
         </PersistGate>
       </Provider>

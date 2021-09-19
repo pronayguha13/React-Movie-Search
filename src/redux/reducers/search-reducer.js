@@ -9,7 +9,7 @@ const search_reducers = (state = initialState, action) => {
     case SET_SEARCH_QUERY:
       return {
         ...state,
-        query: action.payload.query,
+        query: action.payload,
       };
     default:
       return state;
