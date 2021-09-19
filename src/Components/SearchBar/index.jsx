@@ -1,14 +1,15 @@
-import React, { useContext } from "react";
+import React from "react";
+import { connect } from "react-redux";
 
-import { MovieContext } from "../../global/MovieContext";
 import styles from "./styles.module.css";
 
-const SearchBar = () => {
-  const { searchQuery, setSearchQuery, searchMovie } = useContext(MovieContext);
+import { setSearchQuery } from "../../redux/actions/search-action";
+const SearchBar = (props) => {
+  const { query, setQuery } = props;
 
   const _onKeyPressHandler = (e) => {
     if (e.key === "Enter") {
-      searchMovie();
+      // searchMovie();
     }
   };
 
@@ -16,8 +17,8 @@ const SearchBar = () => {
     <div className={styles.searchBarContainer}>
       <input
         type="text"
-        value={searchQuery}
-        onChange={(event) => setSearchQuery(event.target.value)}
+        value={query}
+        onChange={(event) => setQuery(event.target.value)}
         onKeyPress={_onKeyPressHandler}
         placeholder="Type here and press enter.."
         className={styles.searchInput}
@@ -26,14 +27,24 @@ const SearchBar = () => {
         src="assets/logo.svg"
         alt="logo"
         className={styles.searchImage}
-        onClick={
-          searchQuery.length
-            ? () => searchMovie()
-            : () => console.log("No text")
-        }
+        // onClick={
+        //   query.length ? () => searchMovie() : () => console.log("No text")
+        // }
       />
     </div>
   );
 };
 
-export default SearchBar;
+const mapStateToProps = (state) => {
+  return {
+    query: state.query.query,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setQuery: (query) => dispatch(setSearchQuery(query)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

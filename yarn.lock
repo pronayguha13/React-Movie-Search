@@ -4695,9 +4695,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30000981, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001125, caniuse-lite@npm:^1.0.30001181":
-  version: 1.0.30001191
-  resolution: "caniuse-lite@npm:1.0.30001191"
-  checksum: e61445fbf696c5f60d4bc4e6f6585e167ad8c9ee34d26d3410455c3f596fc8d3622cbe5065a020a04ada84935782a3ff1a2a0641bc5b51ee232f6e8dfa6be128
+  version: 1.0.30001258
+  resolution: "caniuse-lite@npm:1.0.30001258"
+  checksum: 2e87875a7792444f18060f836dbe1a3fcf58dcdd4608c63725dac503aadd617c2bb771c766963fb31528c10fd55201a7cf3ece555a3e754f94ee4a991626c302
   languageName: node
   linkType: hard
 
@@ -10474,6 +10474,8 @@ fsevents@^1.2.7:
     react-router-dom: ^5.2.0
     react-scripts: 4.0.3
     redux: ^4.1.1
+    redux-persist: ^6.0.0
+    redux-thunk: ^2.3.0
     web-vitals: ^1.0.1
   languageName: unknown
   linkType: soft
@@ -13042,6 +13044,15 @@ fsevents@^1.2.7:
     indent-string: ^4.0.0
     strip-indent: ^3.0.0
   checksum: fa1ef20404a2d399235e83cc80bd55a956642e37dd197b4b612ba7327bf87fa32745aeb4a1634b2bab25467164ab4ed9c15be2c307923dd08b0fe7c52431ae6b
+  languageName: node
+  linkType: hard
+
+"redux-persist@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "redux-persist@npm:6.0.0"
+  peerDependencies:
+    redux: ">4.0.0"
+  checksum: edaf10dbf17351ce8058d0802357adae8665b3a1ff39371834e37838ddbe1a79cccbc717b8ba54acb5307651ccf51d0f7dc1cbc8dbae0726ff952d11ef61c6b8
   languageName: node
   linkType: hard
 

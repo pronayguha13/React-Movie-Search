@@ -1,26 +1,25 @@
 import React, { useContext } from "react";
-
-import { MovieContext } from "../../global/MovieContext";
+import { connect } from "react-redux";
+import { setMovie } from "../../redux/actions/movie-action";
 
 import MovieCard from "../MovieCard/index";
 import StatusCard from "../StatusCard/index";
 
 import styles from "./styles.module.css";
-const MovieList = () => {
-  const { movies, searchQuery } = useContext(MovieContext);
-
+const MovieList = (props) => {
+  const { query, movieList, setMovie } = props;
   return (
     <div className={styles.container}>
-      {movies.length ? (
+      {movieList.length ? (
         <div className={styles.movieListContainer}>
-          {movies.map((movie, index) => (
+          {movieList.map((movie, index) => (
             <MovieCard key={index} movie={movie} />
           ))}
         </div>
       ) : (
         <StatusCard
           message={
-            searchQuery.length
+            query.length
               ? "Sorry Cannot find the movie..."
               : "Please use the searchbox to get your favourite movie..."
           }
@@ -30,4 +29,16 @@ const MovieList = () => {
   );
 };
 
-export default MovieList;
+const mapStateToProps = (state) => {
+  return {
+    query: state.query.query,
+    movieList: state.movieList.movieList,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setMovie: (movieList) => dispatch(setMovie(movieList)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(MovieList);
