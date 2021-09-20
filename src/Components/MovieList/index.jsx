@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { setMovie } from "../../redux/actions/movie-action";
 
@@ -6,24 +6,40 @@ import MovieCard from "../MovieCard/index";
 import StatusCard from "../StatusCard/index";
 
 import styles from "./styles.module.css";
+
+import Loader from "react-loader-spinner";
+
 const MovieList = (props) => {
-  const { query, movieList, setMovie } = props;
+  const { query, movieList, isLoading } = props;
   return (
     <div className={styles.container}>
-      {movieList.length ? (
-        <div className={styles.movieListContainer}>
-          {movieList.map((movie, index) => (
-            <MovieCard key={index} movie={movie} />
-          ))}
-        </div>
+      {!isLoading ? (
+        movieList.length ? (
+          <div className={styles.movieListContainer}>
+            {movieList.map((movie, index) => (
+              <MovieCard key={index} movie={movie} />
+            ))}
+          </div>
+        ) : (
+          <StatusCard
+            message={
+              query.length
+                ? "Sorry Cannot find the movie..."
+                : "Please use the searchbox to get your favourite movie..."
+            }
+          />
+        )
       ) : (
-        <StatusCard
-          message={
-            query.length
-              ? "Sorry Cannot find the movie..."
-              : "Please use the searchbox to get your favourite movie..."
-          }
-        />
+        <>
+          <Loader
+            type="Audio"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={3000} //3 secs
+          />
+          <h4>Fetching movie</h4>
+        </>
       )}
     </div>
   );
@@ -33,6 +49,7 @@ const mapStateToProps = (state) => {
   return {
     query: state.query.query,
     movieList: state.movieList.movieList,
+    isLoading: state.query.isLoading,
   };
 };
 

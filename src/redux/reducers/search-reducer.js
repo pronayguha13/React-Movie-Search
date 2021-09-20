@@ -1,7 +1,12 @@
-import { SET_SEARCH_QUERY } from "../actions/actionTypes.js";
+import {
+  SET_SEARCH_QUERY,
+  SHOW_LOADER,
+  HIDE_LOADER,
+} from "../actions/actionTypes.js";
 
 const initialState = {
   query: "",
+  isLoading: false,
 };
 
 const search_reducers = (state = initialState, action) => {
@@ -10,6 +15,16 @@ const search_reducers = (state = initialState, action) => {
       return {
         ...state,
         query: action.payload,
+      };
+    case SHOW_LOADER:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case HIDE_LOADER:
+      return {
+        ...state,
+        isLoading: false,
       };
     default:
       return state;

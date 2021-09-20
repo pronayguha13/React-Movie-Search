@@ -3,13 +3,17 @@ import { connect } from "react-redux";
 
 import styles from "./styles.module.css";
 
-import { setSearchQuery } from "../../redux/actions/search-action";
+import {
+  setSearchQuery,
+  searchMovies,
+} from "../../redux/actions/search-action";
+
 const SearchBar = (props) => {
-  const { query, setQuery } = props;
+  const { query, setQuery, searchMovies } = props;
 
   const _onKeyPressHandler = (e) => {
     if (e.key === "Enter") {
-      // searchMovie();
+      searchMovies();
     }
   };
 
@@ -27,9 +31,9 @@ const SearchBar = (props) => {
         src="assets/logo.svg"
         alt="logo"
         className={styles.searchImage}
-        // onClick={
-        //   query.length ? () => searchMovie() : () => console.log("No text")
-        // }
+        onClick={
+          query.length ? () => searchMovies() : () => console.log("No text")
+        }
       />
     </div>
   );
@@ -44,6 +48,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     setQuery: (query) => dispatch(setSearchQuery(query)),
+    searchMovies: (query) => dispatch(searchMovies(query)),
   };
 };
 
