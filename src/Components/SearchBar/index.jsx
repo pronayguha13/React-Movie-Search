@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 
 import styles from "./styles.module.css";
@@ -16,6 +16,16 @@ const SearchBar = (props) => {
       searchMovies();
     }
   };
+
+  useEffect(() => {
+    let timer = null;
+    timer && clearTimeout(timer);
+    let delay = 2000;
+    timer = setTimeout(() => {
+      searchMovies();
+    }, delay);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query]);
 
   return (
     <div className={styles.searchBarContainer}>
