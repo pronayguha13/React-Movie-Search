@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+import Loader from "react-loader-spinner";
+
 import { setMovie } from "../../redux/actions/movie-action";
 
 import MovieCard from "../MovieCard/index";
 import StatusCard from "../StatusCard/index";
 
 import styles from "./styles.module.css";
-
-import Loader from "react-loader-spinner";
 
 const MovieList = (props) => {
   const { query, movieList, isLoading } = props;
@@ -23,7 +23,7 @@ const MovieList = (props) => {
         ) : (
           <StatusCard
             message={
-              query.length
+              query?.length && !movieList?.length
                 ? "Sorry Cannot find the movie..."
                 : "Please use the searchbox to get your favourite movie..."
             }
